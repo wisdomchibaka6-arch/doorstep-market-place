@@ -161,7 +161,7 @@ function AppHeader({
         />
       ) : (
         <View style={styles.brandMark}>
-          <Ionicons name="location" size={22} color={colors.primary} />
+          <Text style={styles.logoD}>D</Text>
         </View>
       )}
       <View style={styles.headerCopy}>
@@ -345,8 +345,8 @@ function HomeScreen({
     <ScreenShell screen="home" onNav={onNavigate}>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         <AppHeader
-          title="Doorstep Market"
-          subtitle="Shop Local  •  Support Local"
+          title="Doorstep"
+          subtitle="BUY • COLLECT • DELIVER"
           right={
             <IconButton
               name="notifications-outline"
@@ -362,8 +362,8 @@ function HomeScreen({
           <Image source={assets.banner} resizeMode="cover" style={styles.heroImage} />
           <View style={styles.heroShade} />
           <View style={styles.heroCopy}>
-            <Text style={styles.heroTitle}>Local Shops{'\n'}Real People{'\n'}Great Products</Text>
-            <Text style={styles.heroSubtitle}>Discover your neighborhood{'\n'}and support small businesses.</Text>
+            <Text style={styles.heroTitle}>Doorstep Delivery{'\n'}& Buying{'\n'}Service!</Text>
+            <Text style={styles.heroSubtitle}>We help you buy items, collect parcels{'\n'}and deliver them — fast and affordable.</Text>
           </View>
         </Pressable>
         <SearchBar value="" onPress={() => onNavigate('browse')} />
@@ -478,7 +478,7 @@ function MyShopScreen({ onNavigate }: { onNavigate: (screen: Screen) => void }) 
           </View>
           <Ionicons name="chevron-forward" size={18} color={colors.navy} />
         </Pressable>
-        <Pressable onPress={() => onNavigate('createInfo')} style={({ pressed }) => [styles.actionCard, { backgroundColor: '#F1F6FF' }, pressed && styles.pressed]}>
+        <Pressable onPress={() => onNavigate('createInfo')} style={({ pressed }) => [styles.actionCard, { backgroundColor: '#E8F5E8' }, pressed && styles.pressed]}>
           <View style={[styles.actionIcon, { backgroundColor: colors.primary }]}>
             <Ionicons name="storefront-outline" size={25} color={colors.primaryForeground} />
           </View>
@@ -516,7 +516,7 @@ function AccountScreen({ onNavigate }: { onNavigate: (screen: Screen) => void })
             <Ionicons name="person" size={34} color={colors.primary} />
           </View>
           <Text style={styles.accountName}>Welcome back</Text>
-          <Text style={styles.accountSub}>Shop local. Support local.</Text>
+          <Text style={styles.accountSub}>Your Needs, Our Priority</Text>
         </View>
         {['My orders', 'Saved shops', 'Notifications', 'Help & support'].map((item, index) => (
           <Pressable key={item} style={({ pressed }) => [styles.manageLink, pressed && styles.pressed]}>
@@ -1003,85 +1003,86 @@ export default function DoorstepMarket() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: '#F7F9FD' },
+  root: { flex: 1, backgroundColor: '#FDFDFD' },
   scrollContent: { paddingBottom: 100 },
-  header: { minHeight: 72, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 18, gap: 10, backgroundColor: '#F7F9FD' },
+  header: { minHeight: 72, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 18, gap: 10, backgroundColor: '#FDFDFD' },
   brandMark: { width: 32, height: 32, alignItems: 'center', justifyContent: 'center' },
+  logoD: { color: '#288426', fontSize: 26, fontFamily: 'Inter_700Bold' },
   headerCopy: { flex: 1 },
-  headerTitle: { color: '#102348', fontSize: 17, fontFamily: 'Inter_700Bold' },
-  headerSubtitle: { color: '#71809A', fontSize: 10, marginTop: 2, fontFamily: 'Inter_500Medium' },
+  headerTitle: { color: '#1A1A1A', fontSize: 17, fontFamily: 'Inter_700Bold' },
+  headerSubtitle: { color: '#5A6B5A', fontSize: 10, marginTop: 2, fontFamily: 'Inter_500Medium' },
   headerSpacer: { width: 36 },
   iconButton: { width: 36, height: 36, alignItems: 'center', justifyContent: 'center' },
   pressed: { opacity: 0.72 },
-  heroBanner: { height: 166, marginHorizontal: 14, borderRadius: 12, overflow: 'hidden', backgroundColor: '#102348' },
+  heroBanner: { height: 166, marginHorizontal: 14, borderRadius: 12, overflow: 'hidden', backgroundColor: '#1A1A1A' },
   heroImage: { width: '100%', height: '100%' },
-  heroShade: { ...StyleSheet.absoluteFill, backgroundColor: 'rgba(16,35,72,0.58)' },
+  heroShade: { ...StyleSheet.absoluteFill, backgroundColor: 'rgba(30,110,29,0.55)' },
   heroCopy: { position: 'absolute', left: 16, top: 19 },
   heroTitle: { color: '#FFFFFF', fontSize: 21, lineHeight: 24, fontFamily: 'Inter_700Bold' },
-  heroSubtitle: { color: '#E8F0FF', fontSize: 10, lineHeight: 14, marginTop: 9, fontFamily: 'Inter_500Medium' },
-  searchBar: { height: 43, marginHorizontal: 14, marginTop: 15, borderWidth: 1, borderColor: '#D8E1EF', borderRadius: 9, paddingHorizontal: 12, flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFFFFF', gap: 8 },
-  searchInput: { flex: 1, color: '#102348', fontFamily: 'Inter_500Medium', fontSize: 12, paddingVertical: 0 },
+  heroSubtitle: { color: '#D8EFD8', fontSize: 10, lineHeight: 14, marginTop: 9, fontFamily: 'Inter_500Medium' },
+  searchBar: { height: 43, marginHorizontal: 14, marginTop: 15, borderWidth: 1, borderColor: '#C8E6C8', borderRadius: 9, paddingHorizontal: 12, flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFFFFF', gap: 8 },
+  searchInput: { flex: 1, color: '#1A1A1A', fontFamily: 'Inter_500Medium', fontSize: 12, paddingVertical: 0 },
   sectionTitleRow: { paddingHorizontal: 16, marginTop: 19, marginBottom: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  sectionTitle: { color: '#102348', fontSize: 14, fontFamily: 'Inter_700Bold' },
+  sectionTitle: { color: '#1A1A1A', fontSize: 14, fontFamily: 'Inter_700Bold' },
   sectionAction: { fontSize: 11, fontFamily: 'Inter_600SemiBold' },
   categoryGrid: { paddingHorizontal: 13, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' },
   categoryItem: { width: '24%', alignItems: 'center', marginBottom: 13 },
   categoryIcon: { width: 45, height: 45, borderRadius: 23, alignItems: 'center', justifyContent: 'center' },
-  categoryLabel: { color: '#50617C', fontSize: 9, textAlign: 'center', lineHeight: 12, marginTop: 5, minHeight: 24, fontFamily: 'Inter_500Medium' },
-  shopListCard: { marginHorizontal: 14, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: '#D8E1EF', borderRadius: 10, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  categoryLabel: { color: '#4A5A4A', fontSize: 9, textAlign: 'center', lineHeight: 12, marginTop: 5, minHeight: 24, fontFamily: 'Inter_500Medium' },
+  shopListCard: { marginHorizontal: 14, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: '#C8E6C8', borderRadius: 10, padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 },
   shopBadge: { width: 48, height: 48, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
   shopBadgeCross: { color: '#F2B134', fontSize: 19, lineHeight: 18, fontFamily: 'Inter_700Bold' },
   shopBadgeGod: { color: '#FFFFFF', fontSize: 11, lineHeight: 12, fontFamily: 'Inter_700Bold' },
   shopListCopy: { flex: 1 },
-  shopName: { color: '#102348', fontSize: 12, fontFamily: 'Inter_700Bold' },
-  shopMeta: { color: '#71809A', fontSize: 10, marginTop: 4, fontFamily: 'Inter_500Medium' },
+  shopName: { color: '#1A1A1A', fontSize: 12, fontFamily: 'Inter_700Bold' },
+  shopMeta: { color: '#5A6B5A', fontSize: 10, marginTop: 4, fontFamily: 'Inter_500Medium' },
   rating: { color: '#F2B134', fontSize: 11, marginTop: 6, fontFamily: 'Inter_700Bold' },
-  ratingText: { color: '#71809A', fontFamily: 'Inter_500Medium' },
-  distance: { color: '#71809A', fontSize: 9, marginTop: 3 },
-  money: { color: '#102348', fontSize: 12, marginTop: 4, fontFamily: 'Inter_700Bold' },
+  ratingText: { color: '#5A6B5A', fontFamily: 'Inter_500Medium' },
+  distance: { color: '#5A6B5A', fontSize: 9, marginTop: 3 },
+  money: { color: '#1A1A1A', fontSize: 12, marginTop: 4, fontFamily: 'Inter_700Bold' },
   moneyLarge: { fontSize: 21, marginTop: 11 },
-  bottomNav: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 72, backgroundColor: '#FFFFFF', borderTopWidth: 1, borderTopColor: '#E3EAF3', flexDirection: 'row', justifyContent: 'space-around', paddingTop: 10 },
+  bottomNav: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 72, backgroundColor: '#FFFFFF', borderTopWidth: 1, borderTopColor: '#D0E8D0', flexDirection: 'row', justifyContent: 'space-around', paddingTop: 10 },
   navItem: { alignItems: 'center', gap: 4, width: '25%' },
-  navLabel: { color: '#71809A', fontSize: 9, fontFamily: 'Inter_500Medium' },
+  navLabel: { color: '#5A6B5A', fontSize: 9, fontFamily: 'Inter_500Medium' },
   filterRow: { paddingHorizontal: 14, flexDirection: 'row', gap: 8, marginTop: 13 },
-  filterChip: { paddingHorizontal: 12, height: 29, borderRadius: 15, alignItems: 'center', justifyContent: 'center', backgroundColor: '#EEF3FA' },
-  filterText: { color: '#50617C', fontSize: 10, fontFamily: 'Inter_600SemiBold' },
-  browseShopCard: { marginHorizontal: 14, borderRadius: 10, borderWidth: 1, borderColor: '#D8E1EF', backgroundColor: '#FFFFFF', padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  filterChip: { paddingHorizontal: 12, height: 29, borderRadius: 15, alignItems: 'center', justifyContent: 'center', backgroundColor: '#E8F5E8' },
+  filterText: { color: '#4A5A4A', fontSize: 10, fontFamily: 'Inter_600SemiBold' },
+  browseShopCard: { marginHorizontal: 14, borderRadius: 10, borderWidth: 1, borderColor: '#C8E6C8', backgroundColor: '#FFFFFF', padding: 12, flexDirection: 'row', alignItems: 'center', gap: 10 },
   outlineSmallButton: { borderWidth: 1, borderRadius: 6, paddingHorizontal: 8, paddingVertical: 6 },
   outlineSmallText: { fontSize: 9, fontFamily: 'Inter_700Bold' },
   productGrid: { paddingHorizontal: 14, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 10 },
-  productCard: { width: '48.3%', borderRadius: 9, borderWidth: 1, borderColor: '#D8E1EF', backgroundColor: '#FFFFFF', padding: 7, overflow: 'hidden' },
+  productCard: { width: '48.3%', borderRadius: 9, borderWidth: 1, borderColor: '#C8E6C8', backgroundColor: '#FFFFFF', padding: 7, overflow: 'hidden' },
   productCardCompact: { width: '48.3%' },
-  productImageWrap: { height: 122, borderRadius: 7, overflow: 'hidden', backgroundColor: '#F1F4F9', position: 'relative' },
+  productImageWrap: { height: 122, borderRadius: 7, overflow: 'hidden', backgroundColor: '#F0F7F0', position: 'relative' },
   productImage: { width: '100%', height: '100%' },
   cartBubble: { position: 'absolute', right: 5, bottom: 5, width: 25, height: 25, borderRadius: 13, backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center' },
-  productName: { color: '#102348', fontSize: 10, marginTop: 7, fontFamily: 'Inter_600SemiBold' },
-  productRating: { color: '#71809A', fontSize: 8, marginTop: 4 },
+  productName: { color: '#1A1A1A', fontSize: 10, marginTop: 7, fontFamily: 'Inter_600SemiBold' },
+  productRating: { color: '#5A6B5A', fontSize: 8, marginTop: 4 },
   stockText: { fontSize: 9, marginTop: 3, fontFamily: 'Inter_600SemiBold' },
-  myShopCard: { marginHorizontal: 14, padding: 12, borderRadius: 10, borderWidth: 1, borderColor: '#D8E1EF', backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 10 },
+  myShopCard: { marginHorizontal: 14, padding: 12, borderRadius: 10, borderWidth: 1, borderColor: '#C8E6C8', backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 10 },
   activeStatus: { fontSize: 9, marginTop: 5, fontFamily: 'Inter_600SemiBold' },
   actionCard: { marginHorizontal: 14, marginTop: 12, padding: 14, borderRadius: 10, flexDirection: 'row', alignItems: 'center', gap: 12 },
   actionIcon: { width: 45, height: 45, borderRadius: 23, alignItems: 'center', justifyContent: 'center' },
   actionCopy: { flex: 1 },
-  actionTitle: { color: '#102348', fontSize: 12, fontFamily: 'Inter_700Bold' },
-  actionSubtitle: { color: '#71809A', fontSize: 10, lineHeight: 14, marginTop: 3, fontFamily: 'Inter_500Medium' },
-  manageLinks: { marginTop: 13, marginHorizontal: 14, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: '#D8E1EF', borderRadius: 10 },
-  manageLink: { minHeight: 52, paddingHorizontal: 14, borderBottomWidth: 1, borderBottomColor: '#EEF2F7', flexDirection: 'row', alignItems: 'center', gap: 11 },
-  manageLinkText: { flex: 1, color: '#102348', fontSize: 12, fontFamily: 'Inter_600SemiBold' },
+  actionTitle: { color: '#1A1A1A', fontSize: 12, fontFamily: 'Inter_700Bold' },
+  actionSubtitle: { color: '#5A6B5A', fontSize: 10, lineHeight: 14, marginTop: 3, fontFamily: 'Inter_500Medium' },
+  manageLinks: { marginTop: 13, marginHorizontal: 14, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: '#C8E6C8', borderRadius: 10 },
+  manageLink: { minHeight: 52, paddingHorizontal: 14, borderBottomWidth: 1, borderBottomColor: '#E0EFE0', flexDirection: 'row', alignItems: 'center', gap: 11 },
+  manageLinkText: { flex: 1, color: '#1A1A1A', fontSize: 12, fontFamily: 'Inter_600SemiBold' },
   accountHero: { alignItems: 'center', paddingVertical: 28 },
   avatar: { width: 78, height: 78, borderRadius: 39, alignItems: 'center', justifyContent: 'center' },
-  accountName: { color: '#102348', fontSize: 18, marginTop: 12, fontFamily: 'Inter_700Bold' },
-  accountSub: { color: '#71809A', fontSize: 11, marginTop: 4 },
+  accountName: { color: '#1A1A1A', fontSize: 18, marginTop: 12, fontFamily: 'Inter_700Bold' },
+  accountSub: { color: '#5A6B5A', fontSize: 11, marginTop: 4 },
   wizardContent: { paddingBottom: 40 },
   progressRow: { paddingHorizontal: 19, marginTop: 14, marginBottom: 29, flexDirection: 'row', alignItems: 'flex-start' },
   progressItem: { alignItems: 'center', width: 50 },
-  progressCircle: { width: 22, height: 22, borderRadius: 11, borderWidth: 1, borderColor: '#C7D2E2', alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF' },
-  progressNumber: { color: '#71809A', fontSize: 10, fontFamily: 'Inter_600SemiBold' },
-  progressLabel: { color: '#71809A', fontSize: 8, textAlign: 'center', marginTop: 5, lineHeight: 10 },
-  progressLine: { flex: 1, height: 1, backgroundColor: '#D8E1EF', marginTop: 11 },
-  formTitle: { marginHorizontal: 17, color: '#102348', fontSize: 14, fontFamily: 'Inter_700Bold' },
-  formHint: { marginHorizontal: 17, color: '#71809A', fontSize: 10, lineHeight: 14, marginTop: 5 },
-  formInput: { height: 42, borderWidth: 1, borderColor: '#CBD7E8', borderRadius: 7, backgroundColor: '#FFFFFF', marginHorizontal: 17, marginTop: 9, paddingHorizontal: 11, color: '#102348', fontSize: 11, fontFamily: 'Inter_500Medium' },
+  progressCircle: { width: 22, height: 22, borderRadius: 11, borderWidth: 1, borderColor: '#B5D8B5', alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF' },
+  progressNumber: { color: '#5A6B5A', fontSize: 10, fontFamily: 'Inter_600SemiBold' },
+  progressLabel: { color: '#5A6B5A', fontSize: 8, textAlign: 'center', marginTop: 5, lineHeight: 10 },
+  progressLine: { flex: 1, height: 1, backgroundColor: '#C8E6C8', marginTop: 11 },
+  formTitle: { marginHorizontal: 17, color: '#1A1A1A', fontSize: 14, fontFamily: 'Inter_700Bold' },
+  formHint: { marginHorizontal: 17, color: '#5A6B5A', fontSize: 10, lineHeight: 14, marginTop: 5 },
+  formInput: { height: 42, borderWidth: 1, borderColor: '#B5D8B5', borderRadius: 7, backgroundColor: '#FFFFFF', marginHorizontal: 17, marginTop: 9, paddingHorizontal: 11, color: '#1A1A1A', fontSize: 11, fontFamily: 'Inter_500Medium' },
   wizardSpacer: { minHeight: 270 },
   wizardFooter: { flexDirection: 'row', marginHorizontal: 17, gap: 9, marginTop: 26 },
   cancelButton: { flex: 1, height: 43, borderRadius: 6, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
@@ -1089,17 +1090,17 @@ const styles = StyleSheet.create({
   primaryButton: { height: 43, borderRadius: 6, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 7, paddingHorizontal: 17 },
   primaryButtonFull: { flex: 1 },
   primaryButtonText: { color: '#FFFFFF', fontSize: 11, fontFamily: 'Inter_700Bold' },
-  selectBox: { marginHorizontal: 17, height: 55, borderWidth: 1, borderColor: '#CBD7E8', borderRadius: 7, marginTop: 13, paddingHorizontal: 10, justifyContent: 'center' },
-  selectLabel: { color: '#71809A', fontSize: 8 },
-  selectValue: { color: '#102348', fontSize: 11, marginTop: 3, flex: 1 },
+  selectBox: { marginHorizontal: 17, height: 55, borderWidth: 1, borderColor: '#B5D8B5', borderRadius: 7, marginTop: 13, paddingHorizontal: 10, justifyContent: 'center' },
+  selectLabel: { color: '#5A6B5A', fontSize: 8 },
+  selectValue: { color: '#1A1A1A', fontSize: 11, marginTop: 3, flex: 1 },
   addCategoriesTitle: { marginTop: 22 },
   checkboxRow: { marginHorizontal: 17, height: 34, flexDirection: 'row', alignItems: 'center', gap: 9 },
-  checkbox: { width: 15, height: 15, borderRadius: 3, borderWidth: 1, borderColor: '#B9C6D8', alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF' },
-  checkboxText: { color: '#50617C', fontSize: 11, fontFamily: 'Inter_500Medium' },
+  checkbox: { width: 15, height: 15, borderRadius: 3, borderWidth: 1, borderColor: '#A8D08D', alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFFFFF' },
+  checkboxText: { color: '#4A5A4A', fontSize: 11, fontFamily: 'Inter_500Medium' },
   addCategoryTextRow: { marginHorizontal: 17, marginTop: 8, flexDirection: 'row', alignItems: 'center', gap: 4 },
   addCategoryText: { fontSize: 10, fontFamily: 'Inter_600SemiBold' },
   fieldBlock: { marginTop: 13 },
-  fieldLabel: { marginHorizontal: 17, color: '#50617C', fontSize: 10, fontFamily: 'Inter_600SemiBold' },
+  fieldLabel: { marginHorizontal: 17, color: '#4A5A4A', fontSize: 10, fontFamily: 'Inter_600SemiBold' },
   twoFields: { flexDirection: 'row', gap: 9, marginHorizontal: 0 },
   halfField: { flex: 1 },
   uploadButton: { height: 38, marginHorizontal: 17, borderRadius: 6, borderWidth: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 6, marginTop: 14 },
@@ -1107,52 +1108,52 @@ const styles = StyleSheet.create({
   errorText: { color: '#D94F61', fontSize: 10, marginHorizontal: 17, marginTop: 8 },
   anotherProduct: { flexDirection: 'row', gap: 3, alignItems: 'center', justifyContent: 'center', marginTop: 16 },
   anotherProductText: { fontSize: 10, fontFamily: 'Inter_600SemiBold' },
-  manageShopHeader: { marginHorizontal: 14, padding: 12, borderWidth: 1, borderColor: '#D8E1EF', borderRadius: 10, backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 10 },
-  manageTabs: { marginHorizontal: 14, marginTop: 18, borderBottomWidth: 1, borderBottomColor: '#D8E1EF', flexDirection: 'row', justifyContent: 'space-around' },
+  manageShopHeader: { marginHorizontal: 14, padding: 12, borderWidth: 1, borderColor: '#C8E6C8', borderRadius: 10, backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 10 },
+  manageTabs: { marginHorizontal: 14, marginTop: 18, borderBottomWidth: 1, borderBottomColor: '#C8E6C8', flexDirection: 'row', justifyContent: 'space-around' },
   manageTabActive: { paddingBottom: 9, fontSize: 11, fontFamily: 'Inter_700Bold' },
-  manageTab: { color: '#71809A', paddingBottom: 9, fontSize: 11, fontFamily: 'Inter_500Medium' },
-  manageProductCard: { marginHorizontal: 14, marginTop: 9, padding: 8, borderWidth: 1, borderColor: '#D8E1EF', borderRadius: 9, backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 9 },
-  manageProductImage: { width: 58, height: 58, borderRadius: 6, backgroundColor: '#F1F4F9' },
+  manageTab: { color: '#5A6B5A', paddingBottom: 9, fontSize: 11, fontFamily: 'Inter_500Medium' },
+  manageProductCard: { marginHorizontal: 14, marginTop: 9, padding: 8, borderWidth: 1, borderColor: '#C8E6C8', borderRadius: 9, backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 9 },
+  manageProductImage: { width: 58, height: 58, borderRadius: 6, backgroundColor: '#F0F7F0' },
   manageProductCopy: { flex: 1 },
-  managePrice: { color: '#50617C', fontSize: 9, marginTop: 4 },
+  managePrice: { color: '#4A5A4A', fontSize: 9, marginTop: 4 },
   manageActions: { flexDirection: 'row', gap: 7, marginTop: 7 },
   editButton: { borderRadius: 5, borderWidth: 1, paddingHorizontal: 9, paddingVertical: 4 },
   editText: { fontSize: 8, fontFamily: 'Inter_700Bold' },
   removeButton: { borderRadius: 5, borderWidth: 1, borderColor: '#F1C6CE', paddingHorizontal: 7, paddingVertical: 4, flexDirection: 'row', alignItems: 'center', gap: 3 },
   removeText: { fontSize: 8, fontFamily: 'Inter_700Bold' },
-  categoryManageRow: { marginHorizontal: 14, marginTop: 9, padding: 10, borderWidth: 1, borderColor: '#D8E1EF', borderRadius: 9, backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 9 },
+  categoryManageRow: { marginHorizontal: 14, marginTop: 9, padding: 10, borderWidth: 1, borderColor: '#C8E6C8', borderRadius: 9, backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 9 },
   categoryManageIcon: { width: 35, height: 35, borderRadius: 8, alignItems: 'center', justifyContent: 'center' },
   categoryManageCopy: { flex: 1 },
-  manageCategoryName: { color: '#102348', fontSize: 11, fontFamily: 'Inter_600SemiBold' },
-  manageCategoryCount: { color: '#71809A', fontSize: 9, marginTop: 3 },
+  manageCategoryName: { color: '#1A1A1A', fontSize: 11, fontFamily: 'Inter_600SemiBold' },
+  manageCategoryCount: { color: '#5A6B5A', fontSize: 9, marginTop: 3 },
   deleteIcon: { width: 27, height: 27, borderRadius: 5, backgroundColor: '#FFF0F2', alignItems: 'center', justifyContent: 'center' },
   outlineWideButton: { marginHorizontal: 14, marginTop: 15, height: 42, borderWidth: 1, borderRadius: 6, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', gap: 6 },
   outlineWideText: { fontSize: 10, fontFamily: 'Inter_700Bold' },
   shopCover: { width: '100%', height: 156, marginTop: 1 },
-  shopViewHeading: { marginHorizontal: 15, marginTop: -20, padding: 11, borderRadius: 10, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: '#D8E1EF', flexDirection: 'row', alignItems: 'center', gap: 9 },
+  shopViewHeading: { marginHorizontal: 15, marginTop: -20, padding: 11, borderRadius: 10, backgroundColor: '#FFFFFF', borderWidth: 1, borderColor: '#C8E6C8', flexDirection: 'row', alignItems: 'center', gap: 9 },
   shopViewCopy: { flex: 1 },
-  shopViewName: { color: '#102348', fontSize: 13, fontFamily: 'Inter_700Bold' },
+  shopViewName: { color: '#1A1A1A', fontSize: 13, fontFamily: 'Inter_700Bold' },
   followButton: { paddingHorizontal: 12, paddingVertical: 8, borderRadius: 6 },
   followText: { color: '#FFFFFF', fontSize: 10, fontFamily: 'Inter_700Bold' },
-  shopTabs: { marginTop: 17, marginHorizontal: 14, flexDirection: 'row', justifyContent: 'space-around', borderBottomWidth: 1, borderBottomColor: '#D8E1EF' },
-  shopTabText: { color: '#71809A', fontSize: 11, paddingBottom: 9, paddingHorizontal: 13, fontFamily: 'Inter_600SemiBold' },
+  shopTabs: { marginTop: 17, marginHorizontal: 14, flexDirection: 'row', justifyContent: 'space-around', borderBottomWidth: 1, borderBottomColor: '#C8E6C8' },
+  shopTabText: { color: '#5A6B5A', fontSize: 11, paddingBottom: 9, paddingHorizontal: 13, fontFamily: 'Inter_600SemiBold' },
   shopFilters: { paddingHorizontal: 14, flexDirection: 'row', gap: 5, marginTop: 10, marginBottom: 12 },
-  shopFilter: { borderRadius: 14, backgroundColor: '#EEF3FA', paddingHorizontal: 8, paddingVertical: 6 },
-  shopFilterText: { color: '#50617C', fontSize: 8 },
+  shopFilter: { borderRadius: 14, backgroundColor: '#E8F5E8', paddingHorizontal: 8, paddingVertical: 6 },
+  shopFilterText: { color: '#4A5A4A', fontSize: 8 },
   detailContent: { paddingBottom: 32 },
   detailHeaderActions: { flexDirection: 'row', gap: 1 },
-  detailImage: { width: '100%', height: 320, backgroundColor: '#F1F4F9' },
+  detailImage: { width: '100%', height: 320, backgroundColor: '#F0F7F0' },
   detailThumbs: { flexDirection: 'row', gap: 7, paddingHorizontal: 14, marginTop: 10 },
-  detailThumb: { width: 53, height: 53, borderRadius: 6, borderWidth: 1, borderColor: '#D8E1EF', overflow: 'hidden' },
+  detailThumb: { width: 53, height: 53, borderRadius: 6, borderWidth: 1, borderColor: '#C8E6C8', overflow: 'hidden' },
   detailThumbImage: { width: '100%', height: '100%' },
-  detailName: { marginHorizontal: 17, marginTop: 19, color: '#102348', fontSize: 17, fontFamily: 'Inter_700Bold' },
-  detailMeta: { marginHorizontal: 17, color: '#71809A', fontSize: 10, marginTop: 4 },
-  quantityRow: { height: 39, marginHorizontal: 17, marginTop: 14, borderWidth: 1, borderColor: '#D8E1EF', borderRadius: 7, alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', width: 104 },
+  detailName: { marginHorizontal: 17, marginTop: 19, color: '#1A1A1A', fontSize: 17, fontFamily: 'Inter_700Bold' },
+  detailMeta: { marginHorizontal: 17, color: '#5A6B5A', fontSize: 10, marginTop: 4 },
+  quantityRow: { height: 39, marginHorizontal: 17, marginTop: 14, borderWidth: 1, borderColor: '#C8E6C8', borderRadius: 7, alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', width: 104 },
   quantityButton: { width: 34, alignItems: 'center', justifyContent: 'center' },
-  quantityValue: { color: '#102348', fontSize: 12, fontFamily: 'Inter_700Bold' },
+  quantityValue: { color: '#1A1A1A', fontSize: 12, fontFamily: 'Inter_700Bold' },
   addToCartButton: { marginHorizontal: 17, marginTop: 14 },
-  descriptionBlock: { marginHorizontal: 17, marginTop: 21, paddingTop: 14, borderTopWidth: 1, borderTopColor: '#E3EAF3' },
-  detailSectionTitle: { color: '#102348', fontSize: 12, fontFamily: 'Inter_700Bold' },
-  descriptionText: { color: '#50617C', fontSize: 10, lineHeight: 15, marginTop: 6 },
-  detailShopCard: { marginHorizontal: 17, marginTop: 17, padding: 11, borderWidth: 1, borderColor: '#D8E1EF', borderRadius: 9, backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 9 },
+  descriptionBlock: { marginHorizontal: 17, marginTop: 21, paddingTop: 14, borderTopWidth: 1, borderTopColor: '#D0E8D0' },
+  detailSectionTitle: { color: '#1A1A1A', fontSize: 12, fontFamily: 'Inter_700Bold' },
+  descriptionText: { color: '#4A5A4A', fontSize: 10, lineHeight: 15, marginTop: 6 },
+  detailShopCard: { marginHorizontal: 17, marginTop: 17, padding: 11, borderWidth: 1, borderColor: '#C8E6C8', borderRadius: 9, backgroundColor: '#FFFFFF', flexDirection: 'row', alignItems: 'center', gap: 9 },
 });
