@@ -1,0 +1,26 @@
+services:
+  web:
+    image: node:22
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+      - EXPO_NO_TELEMETRY=true
+    command: >
+      sh -c "
+        npm install -g pnpm@latest &&
+        (pnpm install --frozen-lockfile --ignore-scripts || true) &&
+        (pnpm rebuild @swc/core esbuild unrs-resolver || true) &&
+        cd artifacts/doorstep-market &&
+        npx expo start --web --port 3000
+      "
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 300s
