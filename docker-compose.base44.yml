@@ -8,12 +8,12 @@ services:
       - PORT=3000
       - NODE_ENV=development
       - EXPO_NO_TELEMETRY=true
+      - EXPO_UNSTABLE_HEADLESS=1
       - EXPO_PUBLIC_DOMAIN=https://3000-${BASE44_PUBLIC_HOST_SUFFIX}
     command: >
       sh -c "
         npm install -g pnpm@latest &&
-        (pnpm install --frozen-lockfile --ignore-scripts || true) &&
-        (pnpm rebuild @swc/core esbuild unrs-resolver || true) &&
+        pnpm install --frozen-lockfile &&
         cd artifacts/doorstep-market &&
         npx expo start --web --port 3000
       "
