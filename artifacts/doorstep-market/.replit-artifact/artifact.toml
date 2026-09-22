@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/"
+title = "Doorstep Market"
+description = "A neighborhood marketplace app where shoppers discover local stores and sellers manage shops, categories, and products."
+version = "1.0.0"
+id = "artifacts/doorstep-market"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/" ]
+localPort = 18907
+
+[services.development]
+run = "pnpm --filter @workspace/doorstep-market run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/doorstep-market", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/doorstep-market", "run", "serve" ]
+
+[services.env]
+PORT = "18907"
+BASE_PATH = "/"
