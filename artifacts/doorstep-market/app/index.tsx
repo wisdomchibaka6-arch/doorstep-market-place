@@ -49,53 +49,53 @@ type Screen =
 
 const initialProducts: Product[] = [
   {
-    id: 'hoodie',
-    name: 'Faith Over Fear Hoodie',
-    category: "Men's Clothing",
-    price: 25,
-    stock: 10,
+    id: 'apples',
+    name: 'Fresh Apples (1kg)',
+    category: 'Fresh Produce',
+    price: 3.5,
+    stock: 50,
     description:
-      'Comfortable hoodie with a positive message. Made from high-quality cotton.',
+      'Crisp, juicy apples sourced from local farms. Perfect for snacking or baking.',
     image: assets.hoodie,
   },
   {
-    id: 'shirt',
-    name: 'God is Good T-Shirt',
-    category: "Women's Clothing",
-    price: 18,
-    stock: 15,
-    description: 'Soft everyday tee with a simple message of encouragement.',
+    id: 'bread',
+    name: 'Sourdough Bread',
+    category: 'Bakery',
+    price: 4,
+    stock: 20,
+    description: 'Artisan sourdough loaf baked fresh daily with a crusty exterior and soft center.',
     image: assets.hoodie,
   },
   {
-    id: 'sneakers',
-    name: "Men's Sneakers",
-    category: 'Shoes',
-    price: 40,
-    stock: 8,
-    description: 'Clean, comfortable sneakers for every day.',
+    id: 'milk',
+    name: 'Whole Milk 1L',
+    category: 'Dairy',
+    price: 2.5,
+    stock: 30,
+    description: 'Fresh, creamy whole milk from local dairy farms. Pasteurized and homogenized.',
     image: assets.sneakers,
   },
   {
-    id: 'watch',
-    name: 'Classic Watch',
-    category: 'Accessories',
-    price: 60,
-    stock: 5,
-    description: 'A classic everyday watch with a polished finish.',
+    id: 'eggs',
+    name: 'Free Range Eggs (12pk)',
+    category: 'Meat & Fish',
+    price: 5,
+    stock: 25,
+    description: 'Farm-fresh free range eggs, rich in protein and naturally golden yolks.',
     image: assets.sneakers,
   },
 ];
 
 const categories = [
-  { label: 'Fashion', icon: 'shirt', color: 'pink' as const },
-  { label: 'Shoes', icon: 'walk', color: 'cyan' as const },
-  { label: 'Electronics', icon: 'laptop-outline', color: 'blue' as const },
-  { label: 'Home & Living', icon: 'home-outline', color: 'green' as const },
-  { label: 'Beauty & Personal Care', icon: 'flower-outline', color: 'purple' as const },
-  { label: 'Food & Beverages', icon: 'fast-food-outline', color: 'orange' as const },
-  { label: 'Books', icon: 'book-outline', color: 'cyan' as const },
-  { label: 'More', icon: 'grid-outline', color: 'blue' as const },
+  { label: 'Fresh Produce', icon: 'leaf-outline', color: 'green' as const },
+  { label: 'Bakery', icon: 'nutrition-outline', color: 'orange' as const },
+  { label: 'Dairy', icon: 'water-outline', color: 'cyan' as const },
+  { label: 'Meat & Fish', icon: 'restaurant-outline', color: 'pink' as const },
+  { label: 'Pantry & Staples', icon: 'cube-outline', color: 'blue' as const },
+  { label: 'Beverages', icon: 'wine-outline', color: 'purple' as const },
+  { label: 'Snacks', icon: 'fast-food-outline', color: 'yellow' as const },
+  { label: 'More', icon: 'grid-outline', color: 'navy' as const },
 ];
 
 function tap() {
@@ -329,7 +329,7 @@ function ProductCard({
       </View>
       <Text numberOfLines={1} style={styles.productName}>{product.name}</Text>
       <Money value={product.price} />
-      <Text style={styles.productRating}>★ 4.8 ({product.id === 'hoodie' ? 12 : 7} reviews)</Text>
+      <Text style={styles.productRating}>★ 4.8 ({product.id === 'apples' ? 12 : 7} reviews)</Text>
       <Text style={[styles.stockText, { color: colors.green }]}>In stock: {product.stock}</Text>
     </Pressable>
   );
@@ -610,8 +610,8 @@ function CreateCategoryScreen({
   onBack: () => void;
 }) {
   const colors = useColors();
-  const [selected, setSelected] = useState<string[]>(["Men's Clothing", "Women's Clothing"]);
-  const choices = ["Men's Clothing", "Women's Clothing", "Kids' Clothing", 'Shoes', 'Accessories', 'Bags'];
+  const [selected, setSelected] = useState<string[]>(['Fresh Produce', 'Bakery']);
+  const choices = ['Fresh Produce', 'Bakery', 'Dairy', 'Meat & Fish', 'Pantry & Staples', 'Beverages'];
   return (
     <ScreenShell screen="myShop" onNav={() => undefined} showNav={false}>
       <ScrollView contentContainerStyle={styles.wizardContent}>
@@ -621,7 +621,7 @@ function CreateCategoryScreen({
         <Text style={styles.formHint}>Choose the main category that best describes what you sell.</Text>
         <View style={styles.selectBox}>
           <Text style={styles.selectLabel}>Main Category</Text>
-          <Text style={styles.selectValue}>Clothing & Fashion</Text>
+          <Text style={styles.selectValue}>Grocery & Market</Text>
           <Ionicons name="chevron-down" size={17} color={colors.mutedForeground} />
         </View>
         <Text style={[styles.formTitle, styles.addCategoriesTitle]}>Add Product Categories</Text>
@@ -661,10 +661,10 @@ function CreateProductScreen({
   onBack: () => void;
 }) {
   const colors = useColors();
-  const [name, setName] = useState('Faith Over Fear Hoodie');
-  const [price, setPrice] = useState('25.00');
-  const [quantity, setQuantity] = useState('10');
-  const [description, setDescription] = useState('Comfortable hoodie with a positive message. Made from high-quality cotton.');
+  const [name, setName] = useState('Fresh Apples (1kg)');
+  const [price, setPrice] = useState('3.50');
+  const [quantity, setQuantity] = useState('50');
+  const [description, setDescription] = useState('Crisp, juicy apples sourced from local farms. Perfect for snacking or baking.');
   const [error, setError] = useState('');
   const field = (label: string, value: string, onChangeText: (value: string) => void, keyboardType?: KeyboardTypeOptions) => (
     <View style={styles.fieldBlock}>
@@ -679,7 +679,7 @@ function CreateProductScreen({
         <ProgressSteps step={3} />
         <Text style={styles.formTitle}>Add Product</Text>
         {field('Product Name', name, setName)}
-        {field('Category', "Men's Clothing", () => undefined)}
+        {field('Category', 'Fresh Produce', () => undefined)}
         <View style={styles.twoFields}>
           <View style={styles.halfField}>{field('Price (USD)', price, setPrice, 'decimal-pad')}</View>
           <View style={styles.halfField}>{field('Quantity', quantity, setQuantity, 'number-pad')}</View>
@@ -702,7 +702,7 @@ function CreateProductScreen({
             onAdd({
               id: `product-${Date.now()}`,
               name: name.trim(),
-              category: "Men's Clothing",
+              category: 'Fresh Produce',
               price: parsed,
               stock,
               description,
@@ -783,11 +783,11 @@ function ManageProductsScreen({
 function ManageCategoriesScreen({ onNavigate }: { onNavigate: (screen: Screen) => void }) {
   const colors = useColors();
   const categoryRows = [
-    ["Men's Clothing", '12 products', 'shirt-outline'],
-    ["Women's Clothing", '8 products', 'shirt-outline'],
-    ['Shoes', '6 products', 'footsteps-outline'],
-    ['Accessories', '4 products', 'watch-outline'],
-    ['Bags', '3 products', 'bag-outline'],
+    ['Fresh Produce', '12 products', 'leaf-outline'],
+    ['Bakery', '8 products', 'nutrition-outline'],
+    ['Dairy', '6 products', 'water-outline'],
+    ['Meat & Fish', '4 products', 'restaurant-outline'],
+    ['Pantry & Staples', '3 products', 'cube-outline'],
   ];
   return (
     <ScreenShell screen="myShop" onNav={onNavigate} showNav={false}>
@@ -853,7 +853,7 @@ function ShopViewScreen({
         </View>
         <SearchBar value="" onPress={() => undefined} placeholder="Search in this shop..." />
         <View style={styles.shopFilters}>
-          {['All', "Men's Clothing", "Women's Clothing", 'Shoes'].map((item, index) => (
+          {['All', 'Fresh Produce', 'Bakery', 'Dairy'].map((item, index) => (
             <View key={item} style={[styles.shopFilter, index === 0 && { backgroundColor: colors.primary }]}>
               <Text style={[styles.shopFilterText, index === 0 && { color: colors.primaryForeground }]}>{item}</Text>
             </View>
@@ -901,7 +901,7 @@ function ProductDetailScreen({
           ))}
         </View>
         <Text style={styles.detailName}>{product.name}</Text>
-        <Text style={styles.detailMeta}>{product.category}  •  Hoodies</Text>
+        <Text style={styles.detailMeta}>{product.category}</Text>
         <Text style={styles.rating}>★ <Text style={styles.ratingText}>4.8 (12 reviews)</Text></Text>
         <Money value={product.price} large />
         <Text style={[styles.stockText, { color: colors.green }]}>In stock: {product.stock}</Text>
@@ -950,7 +950,7 @@ export default function DoorstepMarket() {
       if (stored) {
         try {
           const parsed = JSON.parse(stored) as Product[];
-          setProducts(parsed.map((product) => ({ ...product, image: product.id === 'sneakers' ? assets.sneakers : assets.hoodie })));
+          setProducts(parsed.map((product) => ({ ...product, image: product.id === 'milk' || product.id === 'eggs' ? assets.sneakers : assets.hoodie })));
         } catch {
           // Keep the curated local catalog if persisted data is invalid.
         }
