@@ -217,8 +217,8 @@ function BottomNav({
   const items: { id: Screen; label: string; icon: string }[] = [
     { id: 'home', label: 'Home', icon: 'home-outline' },
     { id: 'browse', label: 'Browse', icon: 'search-outline' },
-    { id: 'myShop', label: 'My Shop', icon: 'storefront-outline' },
-    { id: 'account', label: 'My Account', icon: 'person-outline' },
+    { id: 'myShop', label: 'Shops', icon: 'storefront-outline' },
+    { id: 'account', label: 'Profile', icon: 'person-outline' },
   ];
   return (
     <View style={styles.bottomNav}>
@@ -454,7 +454,7 @@ function MyShopScreen({ onNavigate }: { onNavigate: (screen: Screen) => void }) 
     <ScreenShell screen="myShop" onNav={onNavigate}>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         <AppHeader
-          title="My Shop"
+          title="Shops"
           right={<IconButton name="notifications-outline" color={colors.navy} accessibilityLabel="Notifications" />}
         />
         <View style={styles.myShopCard}>
@@ -510,7 +510,7 @@ function AccountScreen({ onNavigate }: { onNavigate: (screen: Screen) => void })
   return (
     <ScreenShell screen="account" onNav={onNavigate}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <AppHeader title="My Account" right={<IconButton name="settings-outline" color={colors.navy} accessibilityLabel="Settings" />} />
+        <AppHeader title="Profile" right={<IconButton name="settings-outline" color={colors.navy} accessibilityLabel="Settings" />} />
         <View style={styles.accountHero}>
           <View style={[styles.avatar, { backgroundColor: colors.softBlue }]}>
             <Ionicons name="person" size={34} color={colors.primary} />
@@ -734,7 +734,7 @@ function ManageProductsScreen({
   return (
     <ScreenShell screen="myShop" onNav={onNavigate} showNav={false}>
       <ScrollView contentContainerStyle={styles.wizardContent}>
-        <AppHeader title="My Shop" onBack={() => onNavigate('myShop')} />
+        <AppHeader title="Shops" onBack={() => onNavigate('myShop')} />
         <View style={styles.manageShopHeader}>
           <ShopBadge />
           <View style={styles.shopListCopy}>
